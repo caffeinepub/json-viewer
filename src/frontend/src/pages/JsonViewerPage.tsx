@@ -1,8 +1,9 @@
-import { Braces, GitCompare, Link, ScanSearch } from "lucide-react";
+import { Braces, GitCompare, Link, Moon, ScanSearch, Sun } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import ComparePanel from "../components/ComparePanel";
 import JsonInputPanel from "../components/JsonInputPanel";
 import JsonTreePanel from "../components/JsonTreePanel";
+import { useTheme } from "../hooks/useTheme";
 import type { JsonValue } from "../types/json";
 import { decodeShareState, encodeShareState } from "../utils/share";
 
@@ -39,6 +40,7 @@ type ViewMode = "single" | "compare";
 type ShareStatus = "idle" | "copied" | "manual";
 
 export default function JsonViewerPage() {
+  const { isDark, toggleTheme } = useTheme();
   const [mode, setMode] = useState<ViewMode>("single");
   const [input, setInput] = useState<string>("");
   const [parsedJson, setParsedJson] = useState<JsonValue | null>(null);
@@ -209,6 +211,17 @@ export default function JsonViewerPage() {
               <span>{shareStatus === "copied" ? "Copied!" : "Share"}</span>
             </button>
           )}
+
+          {/* Theme toggle */}
+          <button
+            type="button"
+            onClick={toggleTheme}
+            data-ocid="theme-toggle-btn"
+            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+            className="w-8 h-8 flex items-center justify-center rounded-md bg-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/50 transition-smooth shrink-0"
+          >
+            {isDark ? <Sun size={14} /> : <Moon size={14} />}
+          </button>
         </div>
       </header>
 
