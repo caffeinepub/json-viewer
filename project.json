@@ -1,0 +1,19 @@
+{
+  "overview": "A clean, split-panel JSON viewer with a live input editor on the left and an interactive tree explorer on the right. Format raw JSON, navigate nested structures, and copy any value or path with a single click.",
+  "features": [
+    "Live JSON input with format & validation",
+    "Interactive collapsible tree view",
+    "Copy-to-clipboard on every property and value",
+    "Syntax error display",
+    "Responsive two-column layout"
+  ],
+  "category": "tool",
+  "tags": [
+    "json",
+    "developer-tool",
+    "viewer",
+    "formatter",
+    "tree-view"
+  ],
+  "last_updated": "2026-04-08T15:22:24.623Z"
+}
